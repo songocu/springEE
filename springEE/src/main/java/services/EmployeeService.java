@@ -24,6 +24,10 @@ public class EmployeeService {
 		return employeeDAO.createUser("Gigel");
 	}
 	
+	public Employee createEmployeeTransactional() {
+		return employeeDAO.createUserTransactional("Tudor");
+	}
+	
 	public void deleteUsers(){
 		employeeDAO.deleteUsers();
 	}

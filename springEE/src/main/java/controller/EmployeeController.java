@@ -28,6 +28,13 @@ public class EmployeeController {
 		return model;
 	}
 	
+	@RequestMapping(value = "/createtransactional", method = RequestMethod.GET)
+	public ModelAndView createUserTransactional() {
+		employeeService.createEmployeeTransactional();
+		ModelAndView model = new ModelAndView("createtransactional");
+		return model;
+	}
+	
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public ModelAndView deleteUsers() {
 		employeeService.deleteUsers();
