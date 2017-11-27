@@ -8,6 +8,7 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 import database.entities.Employee;
+import database.entities.Person;
 
 @Configuration
 @EnableTransactionManagement
@@ -20,7 +21,7 @@ public class DAOConfiguration {
 	public LocalSessionFactoryBean getSessionFactory() {
 		LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
 		factoryBean.setConfigLocation(context.getResource("classpath:hibernate.cfg.xml"));
-		factoryBean.setAnnotatedClasses(Employee.class);
+		factoryBean.setAnnotatedClasses(Employee.class,Person.class);
 		return factoryBean;
 	}
 

@@ -32,5 +32,18 @@
 		</tr>
 		
 	</table>
+
+<h3>Call Controller using JDBC Template</h3>
+	<table>
+		<tr>
+			<td>click <a href="rest/listperson">Link to list</a></td>
+		</tr>
+		<tr>
+			<td>click <a href="rest/createperson">Link to created user</a></td>
+		</tr>
+		<tr>
+			<td>click <a href="rest/deleteperson">Link to delete all tables rows</a></td>
+		</tr>		
+	</table>
 </body>
 </html>
