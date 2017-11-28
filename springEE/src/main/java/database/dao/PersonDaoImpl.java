@@ -22,8 +22,10 @@ public class PersonDaoImpl implements PersonDao {
 //	SessionFactory factory;
 
 	public Person addPerson(Person person) {
-		jdbcTemplate.update("INSERT INTO person (personid, firstname, lastname, age) VALUES (?, ?, ?, ?)",
-				person.getPersonId(), person.getFirstName(), person.getLastName(), person.getAge());
+		//increasing of id is set from database, setting done when database was created with:
+		//create table person(personid serial primary key, firstname varchar(50),lastname varchar(50),age integer);
+		jdbcTemplate.update("INSERT INTO person (firstname, lastname, age) VALUES (?, ?, ?)",
+				person.getFirstName(), person.getLastName(), person.getAge());
 		System.out.println("Person Added!!");
 		return person;
 	}
