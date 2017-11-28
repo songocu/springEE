@@ -13,7 +13,6 @@ import services.EmployeeService;
 import java.util.List;
 
 @Sql({"/sql/testEmployees.sql"})// specify sql created data
-@Component
 public class DatabaseIntegrationTest extends TransactionalTestsSetup {
 
     @Autowired

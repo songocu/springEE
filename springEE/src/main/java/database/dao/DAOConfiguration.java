@@ -1,5 +1,7 @@
 package database.dao;
 
+import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
@@ -18,17 +20,20 @@ public class DAOConfiguration {
 	ApplicationContext context;	
 
 	@Bean
-	public LocalSessionFactoryBean getSessionFactory() {
+	public LocalSessionFactoryBean getSessionFactory(DataSource dataSource) {
 		LocalSessionFactoryBean factoryBean = new LocalSessionFactoryBean();
-		factoryBean.setConfigLocation(context.getResource("classpath:hibernate.cfg.xml"));
 		factoryBean.setAnnotatedClasses(Employee.class,Person.class);
+		factoryBean.setDataSource(dataSource);
+		factoryBean.getHibernateProperties().put("hibernate.show_sql", true);
+		factoryBean.getHibernateProperties().put("hibernate.format_sql", true);
+		factoryBean.getHibernateProperties().put("hibernate.use_sql_comments", true);
 		return factoryBean;
 	}
 
 	@Bean
-	public HibernateTransactionManager getTransactionManager() {
+	public HibernateTransactionManager getTransactionManager(LocalSessionFactoryBean sessionFactoryBean) {
 		HibernateTransactionManager transactionManager = new HibernateTransactionManager();
-		transactionManager.setSessionFactory(getSessionFactory().getObject());
+		transactionManager.setSessionFactory(sessionFactoryBean.getObject());
 		return transactionManager;
 	}
 
