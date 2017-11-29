@@ -13,6 +13,8 @@ public interface PersonDao {
     public void deletePerson();
  
     public Person find(int personId);
+    
+    public void remove(int personId);
  
     public List < Person > findAll();
 }

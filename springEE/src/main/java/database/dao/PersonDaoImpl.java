@@ -56,4 +56,10 @@ public class PersonDaoImpl implements PersonDao {
 		List<Person> persons = jdbcTemplate.query("SELECT * FROM person", new BeanPropertyRowMapper(Person.class));
 		return persons;
 	}
+
+	@Override
+	public void remove(int personId) {
+		jdbcTemplate.update("DELETE from person WHERE personid = ? ", personId);
+		System.out.println("Person with id: " + personId +" removed");
+	}
 }

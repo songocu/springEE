@@ -30,6 +30,10 @@ public class PersonServiceImpl implements PersonService {
     public Person find(int personId) {
         return personDao.find(personId);
     }
+    
+    public void removePerson(int personId) {
+    	personDao.remove(personId);
+    }
  
     public List < Person > findAll() {
         return personDao.findAll();
