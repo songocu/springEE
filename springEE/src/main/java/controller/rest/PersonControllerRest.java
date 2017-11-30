@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import database.entities.Employee;
 import database.entities.Person;
@@ -41,5 +42,10 @@ public class PersonControllerRest {
 	public String deleteUsers() {
 		personService.deletePerson();
 		return "Persons deleted!";
+	}
+	
+	@RequestMapping(value = "/findperson", method = RequestMethod.GET)
+	public Person findPerson(@RequestParam("personid") int personId){
+		return personService.find(personId);
 	}
 }

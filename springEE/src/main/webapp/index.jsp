@@ -45,5 +45,14 @@
 			<td>click <a href="rest/deleteperson">Link to delete all tables rows</a></td>
 		</tr>		
 	</table>
+	
+	
+	<form action="rest/findperson" method="get">
+		Find person with id: <input type="text" id="personid" name="personid">
+		<br/>
+		<input type="submit" value="Submit">
+	</form>
+	
+	
 </body>
 </html>
